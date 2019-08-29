@@ -1,67 +1,62 @@
 .toolbar {
-    height: 56px;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgb(3, 172, 14);
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    box-sizing: border-box;
-    z-index: 90;
+  height: 56px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgb(3, 172, 14);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  z-index: 90;
 }
 
-.logo, .toolbar nav {
-    display: flex;
-    align-items: center;
-    position: relative;
-    height: 80%;
+.logo,
+.toolbar nav {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 80%;
 }
 
 .toolbar__icon {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 .toolbar__icon--rounded {
-    border-radius: 50%;
-    border: 2px solid white;
-    padding: 6px;
+  border-radius: 50%;
+  border: 2px solid white;
+  padding: 6px;
 }
 
 .toolbar__title {
-    padding-left: 20px;
-    cursor: initial;
+  padding-left: 20px;
+  cursor: initial;
 }
 
 .toolbar__badge {
-    position: absolute;
-    min-width: 10px;
-    max-width: 20px;
-    height: 18px;
-    top: 0;
-    right: -10px;
-    padding: 0 5px;
-    background-color: white;
-    color: black;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  min-width: 10px;
+  max-width: 20px;
+  height: 18px;
+  top: 0;
+  right: -10px;
+  padding: 0 5px;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .toolbar__badge--info {
-    font-size: 12px;
-    font-weight: bold;
-    line-height: 13.2px;
-    padding: 3px 2px;
-}
-
-@media (max-width: 499px) {
-    .DesktopOnly {
-        display: none;
-    }
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 13.2px;
+  padding: 3px 2px;
 }

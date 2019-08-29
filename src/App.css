@@ -18,6 +18,11 @@
   padding: 10px 20px;
 }
 
+.content__loading {
+  min-height: calc(100vh - 76px);
+  justify-content: center;
+}
+
 .content__header {
   display: flex;
   justify-content: space-between;
@@ -30,9 +35,9 @@
 
 @media (max-width: 414px) {
   .content__header h1 {
-      font-size: 1em;
+    font-size: 1.2em;
   }
   .content__header span {
-      font-size: 0.8em;
+    font-size: 0.8em;
   }
 }

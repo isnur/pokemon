@@ -1,0 +1,6 @@
+.card__content--loadmore {
+  padding: 14.5px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
