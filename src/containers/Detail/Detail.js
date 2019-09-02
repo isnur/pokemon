@@ -22,7 +22,7 @@ class Detail extends Component {
     this.props.history.push(pathname);
   }
   catchPokemon = () => {
-    const beCaught = successProbability(50);
+    const beCaught = successProbability(0.5);
     if (beCaught) {
       this.openModal(true);
     } else {

@@ -14,7 +14,11 @@ const MyPokemon = lazy(() => import('./containers/MyPokemon/MyPokemon'));
 class App extends PureComponent {
   backHandler = () => {
     if (this.props.location.pathname !== '/') {
-      this.props.history.goBack();
+      if (this.props.history.length < 3) {
+        this.props.history.push('/');
+      } else {
+        this.props.history.goBack();
+      }
     }
   }
   detailHandler = () => {
@@ -22,6 +26,7 @@ class App extends PureComponent {
   }
 
   render() {
+    console.log(this);
     return (
       <div className="App">
         <Suspense fallback={<Spinner radius="5" strokeWidth="1" color="#03ac0e" />}>

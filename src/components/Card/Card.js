@@ -10,7 +10,7 @@ const areEqual = (prevProps, nextProps) => {
 
 const card = (props) => {
   const removeButton = props.removed ?
-    <div className="card__content card__content--delete" onClick={props.removed} title="Release Pokemon">
+    <div className="card__content--delete" onClick={props.removed} title="Release Pokemon">
       <img src="/images/pokeball.svg" className="card__image" alt="Release" />
       <span>Release</span>
     </div> : null;
