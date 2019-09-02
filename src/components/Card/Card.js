@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 
 import './Card.css';
 import { capitalizeFirstLetters } from '../../helpers';
 
+const areEqual = (prevProps, nextProps) => {
+  return prevProps.name === nextProps.name;
+};
+
 const card = (props) => {
-  const removeButton = props.isRemove ?
-    <div className="card__content card__content--delete" onClick={props.clicked}>
-      <img src="/images/trash.png" className="card__image" alt="trash" title="Remove" />
+  const removeButton = props.removed ?
+    <div className="card__content card__content--delete" onClick={props.removed} title="Release Pokemon">
+      <img src="/images/pokeball.svg" className="card__image" alt="Release" />
+      <span>Release</span>
     </div> : null;
-  const cardContent = props.disableClick ?
+  const cardContent = !props.clicked ?
     <div className="card__content">
       <div className="card__content--description">
         {capitalizeFirstLetters(props.name)}
@@ -30,4 +35,4 @@ const card = (props) => {
   );
 };
 
-export default card;
+export default memo(card, areEqual);

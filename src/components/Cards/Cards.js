@@ -6,23 +6,22 @@ import { getIdFromUrl } from '../../helpers';
 import Spinner from '../Spinner/Spinner';
 
 const cards = (props) => {
-  let pokemonList = props.pokemonList.map(pokemon =>
+  let cardItems = props.items.map(pokemon =>
     <Card key={getIdFromUrl(pokemon.url)}
       id={getIdFromUrl(pokemon.url)}
-      isRemove={props.isRemove}
-      name={pokemon.name}
-      disableClick={props.disableClick}
-      clicked={() => props.clicked(getIdFromUrl(pokemon.url))}
+      name={pokemon.nickname ? pokemon.nickname : pokemon.name}
+      removed={props.removed ? () => props.removed(getIdFromUrl(pokemon.url)) : null}
+      clicked={props.clicked}
     />);
   if (props.isLoading) {
-    pokemonList = <Spinner radius="10" strokeWidth="1" color="#03ac0e" />;
+    cardItems = <Spinner radius="10" strokeWidth="1" color="#03ac0e" />;
   }
-  if (!props.isLoading && pokemonList.length === 0) {
-    pokemonList = <p>No data</p>;
+  if (!props.isLoading && cardItems.length === 0) {
+    cardItems = <p>No data</p>;
   }
   return (
-    <div className="Cards">
-      {pokemonList}
+    <div className="cards">
+      {cardItems}
       {props.children}
     </div>
   );

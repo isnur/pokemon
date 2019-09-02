@@ -1,0 +1,75 @@
+.modal__container {
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 91;
+}
+.modal {
+  width: 500px;
+  max-width: 90%;
+  background: white;
+  border: 1px solid #ccc;
+  box-shadow: -2rem 2rem 2rem rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 250px;
+}
+.modal__outside {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.modal h2 {
+  border-bottom: 1px solid #ccc;
+  padding: 1rem;
+  margin: 0;
+}
+.modal .content {
+  padding: 1rem;
+  margin: 0;
+}
+.modal__input {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+.modal .actions {
+  border-top: 1px solid #ccc;
+  background: #eee;
+  padding: 0.5rem 1rem;
+}
+.modal .actions button {
+  border: 0;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modal__error {
+  color: red;
+}
+
+.toggle__button--submit {
+  color: white;
+  background: linear-gradient(to right bottom, #9ada97, #2ccda8 88%);
+  margin-right: 10px;
+}
+
+.toggle__button--cancel {
+  color: lightslategrey;
+  background-color: rgba(211, 211, 211, 0.3);
+}
+
+@media (max-width: 414px) {
+  .modal h2 {
+    font-size: 1.1em;
+  }
+}

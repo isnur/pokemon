@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
-import './Home.css';
 import * as actionTypes from '../../store/actions';
 import Cards from '../../components/Cards/Cards';
 import Loadmore from '../../components/Loadmore/Loadmore';
@@ -63,7 +62,7 @@ class Home extends Component {
         <div className="content__header">
           <h1>Pokemon List</h1>
         </div>
-        <Cards isLoading={this.state.busy} isRemove={false} pokemonList={this.props.pokemonList}>
+        <Cards isLoading={this.state.busy} isRemove={false} items={this.props.pokemonList} clicked>
           {this.state.nextUrl ? <Loadmore
             nextUrl={this.state.nextUrl}
             isLoading={this.state.loadmore}
@@ -89,4 +88,5 @@ const mapDispatchToProps = dispatch => {
     onResetPokemon: () => dispatch({ type: actionTypes.RESET_POKEMON })
   };
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

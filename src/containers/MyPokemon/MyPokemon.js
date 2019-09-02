@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import './MyPokemon.css';
 import * as actionTypes from '../../store/actions';
 import Cards from '../../components/Cards/Cards';
 
@@ -21,7 +20,7 @@ class MyPokemon extends Component {
           <h1>My Pokemon List</h1>
           <span>Total owned: <strong>{this.props.myPokemon.length}</strong></span>
         </div>
-        <Cards isRemove={true} pokemonList={this.props.myPokemon} loadmore={false} clicked={(id) => this.props.onRemove(id)} />
+        <Cards items={this.props.myPokemon} loadmore={false} clicked removed={(id) => this.props.onRemove(id)} />
       </div>
     );
   }

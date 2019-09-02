@@ -1,16 +1,17 @@
-import React, { Component, lazy, Suspense } from 'react';
+import React, { PureComponent, lazy, Suspense } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import './App.css';
 import ToolBar from './components/Toolbar/Toolbar';
 import Spinner from './components/Spinner/Spinner';
+import Modal from './components/Modal/Modal';
 
 const Home = lazy(() => import('./containers/Home/Home'));
 const Detail = lazy(() => import('./containers/Detail/Detail'));
 const MyPokemon = lazy(() => import('./containers/MyPokemon/MyPokemon'));
 
-class App extends Component {
+class App extends PureComponent {
   backHandler = () => {
     if (this.props.location.pathname !== '/') {
       this.props.history.goBack();
@@ -18,10 +19,6 @@ class App extends Component {
   }
   detailHandler = () => {
     this.props.history.push('/my-pokemon');
-  }
-
-  shouldComponentUpdate(nextProps) {
-    return nextProps.toolbar.title !== this.props.toolbar.title;
   }
 
   render() {
@@ -35,6 +32,7 @@ class App extends Component {
             <Route path="/" exact component={Home} />
           </Switch>
         </Suspense>
+        <Modal modal={this.props.modal} />
       </div >
     );
   }
@@ -43,7 +41,8 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     toolbar: state.toolbar,
-    myPokemon: state.myPokemon
+    myPokemon: state.myPokemon,
+    modal: state.modal
   };
 };
 

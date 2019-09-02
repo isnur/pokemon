@@ -17,24 +17,32 @@
 }
 
 .content__button {
-  width: 145px;
+  width: 160px;
   padding: 10px 20px;
   margin: 20px 0;
   border: 1px solid transparent;
   border-radius: 20px;
   color: white;
   background: linear-gradient(to right bottom, #9ada97, #2ccda8 88%);
-  cursor: pointer;
 }
 
-.content__moves h3, .content__types h3 {
+.content__moves h3,
+.content__types h3 {
   text-align: left;
   margin-bottom: 0;
   font-size: 1.2em;
 }
 
+.content__moves .cards,
+.content__types .cards {
+  max-height: 265px;
+  margin-top: 10px;
+  padding-top: 0;
+}
+
 @media (max-width: 414px) {
-  .content__moves h3, .content__types h3 {
+  .content__moves h3,
+  .content__types h3 {
     font-size: 1em;
   }
 }

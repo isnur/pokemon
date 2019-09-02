@@ -1,6 +1,20 @@
-.Cards {
+.cards {
   padding: 10px 0 20px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  align-content: flex-start;
+  overflow: auto;
+  scrollbar-color: #666b7a white;
+  scrollbar-width: thin;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.cards::-webkit-scrollbar {
+  width: 5px;
+  background-color: white;
+}
+
+.cards::-webkit-scrollbar-thumb {
+  background-color: #666b7a;
 }

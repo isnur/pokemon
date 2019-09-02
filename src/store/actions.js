@@ -4,3 +4,4 @@ export const ADD_MY_POKEMON = 'ADD_MY_POKEMON';
 export const DELETE_MY_POKEMON = 'DELETE_MY_POKEMON';
 export const UPDATE_TOOLBAR = 'UPDATE_TOOLBAR';
 export const RESET_POKEMON = 'RESET_POKEMON';
+export const UPDATE_MODAL = 'UPDATE_MODAL';

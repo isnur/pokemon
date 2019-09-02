@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import './Loadmore.css';
 import Spinner from '../Spinner/Spinner';
 
+function areEqual(prevProps, nextProps) {
+  return prevProps.isLoading === nextProps.isLoading;
+}
 const loadmore = (props) => {
   return (<button className="card" onClick={props.loadmore} disabled={props.isLoading}>
     <span className="card__content card__content--loadmore">
@@ -11,4 +14,4 @@ const loadmore = (props) => {
   </button>);
 }
 
-export default loadmore;
+export default memo(loadmore, areEqual);
