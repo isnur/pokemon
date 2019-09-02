@@ -52,6 +52,7 @@ class Detail extends Component {
   openModal(success, error) {
     document.body.style.overflow = "hidden";
     document.body.style.position = "fixed";
+    // document.body.style.paddingTop = "38px";
     const modal = {
       status: true,
       content: success,
@@ -67,6 +68,7 @@ class Detail extends Component {
   closeModal() {
     document.body.style.overflow = "auto";
     document.body.style.position = "unset";
+    // document.body.style.paddingTop = 0;
     const modal = {
       status: false
     };
@@ -121,9 +123,15 @@ class Detail extends Component {
     return (
       <div className={`content${this.state.loading ? ' content__loading' : ''}`}>
         <div className="content__header">
-          <h1>
-            {this.getNickname() && this.state.pokemonDetail ? capitalizeFirstLetters(this.state.pokemonDetail.name) : capitalizeFirstLetters(this.getNickname())}
-            {!this.getNickname() && this.state.pokemonDetail ? capitalizeFirstLetters(this.state.pokemonDetail.name) : <span> ({capitalizeFirstLetters(this.getNickname())})</span>}
+          <h1 style={{ 'display': this.state.loading ? 'none' : 'block' }}>
+            {this.getNickname() && this.state.pokemonDetail ?
+              capitalizeFirstLetters(this.state.pokemonDetail.name) :
+              capitalizeFirstLetters(this.getNickname())
+            }
+            {!this.getNickname() && this.state.pokemonDetail ?
+              capitalizeFirstLetters(this.state.pokemonDetail.name) :
+              <span> ({capitalizeFirstLetters(this.getNickname())})</span>
+            }
           </h1>
         </div>
         {this.state.loading && <Spinner radius="10" strokeWidth="1" color="#03ac0e" />}

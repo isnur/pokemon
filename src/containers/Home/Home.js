@@ -37,6 +37,9 @@ class Home extends Component {
   }
 
   componentDidMount() {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 80);
     this.props.onUpdateToolbar({
       srcLogo: '/images/pokemon.png',
       altLogo: 'Pokemon Logo',
