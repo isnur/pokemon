@@ -20,7 +20,7 @@ const card = (props) => {
         {capitalizeFirstLetters(props.name)}
       </div>
     </div> :
-    <Link className="card__content card__content--link"
+    <Link className={`card__content${props.removed ? ' card__content--link-remove' : ' card__content--link'}`}
       to={`/detail/${props.id}`}>
       <div className="card__content--description">
         {capitalizeFirstLetters(props.name)}

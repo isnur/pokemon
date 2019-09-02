@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import './Detail.css';
 import * as actionTypes from '../../store/actions';
-import { getIdFromUrl, capitalizeFirstLetters, successProbability } from '../../helpers';
+import { getIdFromUrl, capitalizeFirstLetters, successProbability, convertUnits } from '../../helpers';
 import Spinner from '../../components/Spinner/Spinner';
 import Cards from '../../components/Cards/Cards';
 
@@ -83,6 +83,10 @@ class Detail extends Component {
       this.goto('/my-pokemon');
     }
   }
+  getNickname() {
+    const pokemon = this.props.myPokemon.filter(pokemon => pokemon.id === this.state.pokemonId);
+    return pokemon.length > 0 ? pokemon[0].nickname : '';
+  }
   componentDidMount() {
     this.setState({ loading: true });
     this.props.onUpdateToolbar({
@@ -117,7 +121,10 @@ class Detail extends Component {
     return (
       <div className={`content${this.state.loading ? ' content__loading' : ''}`}>
         <div className="content__header">
-          <h1>{this.state.pokemonDetail ? capitalizeFirstLetters(this.state.pokemonDetail.name) : ''}</h1>
+          <h1>
+            {this.getNickname() && this.state.pokemonDetail ? capitalizeFirstLetters(this.state.pokemonDetail.name) : capitalizeFirstLetters(this.getNickname())}
+            {!this.getNickname() && this.state.pokemonDetail ? capitalizeFirstLetters(this.state.pokemonDetail.name) : <span> ({capitalizeFirstLetters(this.getNickname())})</span>}
+          </h1>
         </div>
         {this.state.loading && <Spinner radius="10" strokeWidth="1" color="#03ac0e" />}
         {this.state.errorMsg && <div style={{ marginTop: '30px' }}>{this.state.errorMsg}</div>}
@@ -127,6 +134,16 @@ class Detail extends Component {
               <img className="content__image" src={this.state.pokemonDetail.sprites.front_default} alt={this.state.pokemonDetail.name} />
               {this.props.myPokemon.some(pokemon => pokemon.id === this.state.pokemonId) ? null :
                 <button className="content__button" onClick={() => { this.catchPokemon() }}>Catch the Pokemon</button>}
+            </div>
+            <div className="content__info">
+              <div className="info__weight">
+                <div className="title">{convertUnits(this.state.pokemonDetail.weight)}kg</div>
+                <div className="subtitle">WEIGHT</div>
+              </div>
+              <div className="info__height">
+                <div className="title">{convertUnits(this.state.pokemonDetail.height)}m</div>
+                <div className="subtitle">HEIGHT</div>
+              </div>
             </div>
             <div className="content__moves">
               <h3>Moves:</h3>

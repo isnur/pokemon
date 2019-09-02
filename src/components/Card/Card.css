@@ -18,10 +18,14 @@
   padding: 10px;
 }
 
-.card__content--link {
+.card__content--link, .card__content--link-remove {
   cursor: pointer;
   text-decoration: none;
   color: black;
+}
+
+.card__content--link-remove {
+  width: calc(100% - 112px);
 }
 
 .card__content--delete {
@@ -29,7 +33,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 128px;
+  width: 100px;
   padding-left: 6px;
   background-color: rgba(211, 211, 211, 0.3);
   color: lightslategrey;
@@ -45,4 +49,7 @@
 .card__content--description {
   text-align: left;
   padding: 2.5px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
