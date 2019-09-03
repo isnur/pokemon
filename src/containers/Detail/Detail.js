@@ -52,7 +52,6 @@ class Detail extends Component {
   openModal(success, error) {
     document.body.style.overflow = "hidden";
     document.body.style.position = "fixed";
-    // document.body.style.paddingTop = "38px";
     const modal = {
       status: true,
       content: success,
@@ -68,7 +67,6 @@ class Detail extends Component {
   closeModal() {
     document.body.style.overflow = "auto";
     document.body.style.position = "unset";
-    // document.body.style.paddingTop = 0;
     const modal = {
       status: false
     };

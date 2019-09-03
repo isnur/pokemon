@@ -12,11 +12,7 @@ export const capitalizeFirstLetters = (str) => {
 };
 
 export const successProbability = (p) => {
-  let result;
-  for (let i = 0; i < 2; i++) {
-    if (Math.random() < p) { result = true } else { result = false }
-  }
-  return result;
+  return Math.random() < p;
 };
 
 export const convertUnits = (value) => {
