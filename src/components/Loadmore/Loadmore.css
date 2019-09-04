@@ -1,4 +1,4 @@
-.card__content--loadmore {
+.card__content.card__content--loadmore {
   flex-direction: row;
   justify-content: center;
   align-items: center;
