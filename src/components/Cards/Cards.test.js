@@ -5,6 +5,7 @@ import { shallow } from 'enzyme';
 import Cards from './Cards';
 import Card from '../Card/Card';
 import Spinner from '../Spinner/Spinner';
+import Loadmore from '../Loadmore/Loadmore';
 
 describe('<Cards />', () => {
   let wrapper;
@@ -33,5 +34,10 @@ describe('<Cards />', () => {
     ];
     wrapper.setProps({ items: items });
     expect(wrapper.find(Card)).toHaveLength(2);
+  });
+
+  it('should render children', () => {
+    wrapper.setProps({ children: <Loadmore /> });
+    expect(wrapper.contains(<Loadmore />)).toEqual(true);
   });
 });

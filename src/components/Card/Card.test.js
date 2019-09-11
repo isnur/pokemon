@@ -11,8 +11,8 @@ describe('<Card />', () => {
     wrapper = shallow(<Card />);
   });
 
-  it('should return null', () => {
-    expect(wrapper.type()).toEqual(null);
+  it('should empty render', () => {
+    expect(wrapper.isEmptyRender()).toEqual(true);
   });
 
   it('should render an `.card`', () => {
