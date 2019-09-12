@@ -1,10 +1,9 @@
-import React, { Memo } from 'react';
+import React from 'react';
 
 import { shallow } from 'enzyme';
 
 import Loadmore from './Loadmore';
 import Spinner from '../Spinner/Spinner';
-import { fetchPokemonList } from '../../containers/Home/Home';
 
 describe('<Loadmore />', () => {
   let wrapper;
