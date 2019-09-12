@@ -3,7 +3,7 @@ import './Modal.css';
 
 const Modal = ({ modal }) => {
   const [nickname, setNickname] = useState('');
-  if (!modal.status) {
+  if (!modal || !modal.status) {
     return null;
   }
   const handleSubmit = e => {
@@ -18,22 +18,22 @@ const Modal = ({ modal }) => {
         {modal.content && <div className="content">
           <label>
             <p>Give the Pokemon a nickname</p>
-            <input className="modal__input" type="text" name="nickname" onChange={event => setNickname(event.target.value)} />
+            <input className="modal__input" type="text" value={nickname} name="nickname" onChange={event => setNickname(event.target.value)} />
           </label>
-          <p className="modal__error">{modal.errorMsg}</p>
+          {modal.errorMsg && <p className="modal__error">{modal.errorMsg}</p>}
         </div>}
         <div className="actions">
           {modal.content ?
             <button className="toggle__button toggle__button--submit" onClick={(e) => handleSubmit(e)}>
               Submit
             </button> :
-            <button className="toggle__button toggle__button--cancel" onClick={modal.action.cancel}>
+            <button className="toggle__button toggle__button--cancel" onClick={modal.action && modal.action.cancel}>
               Close
             </button>
           }
         </div>
       </div>
-      {modal.clickToClose && <div className="modal__outside" onClick={modal.action.cancel}></div>}
+      {modal.clickToClose && <div className="modal__outside" onClick={modal.action && modal.action.cancel}></div>}
     </div>
   );
 }
