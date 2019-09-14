@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import * as actionTypes from '../../store/actions';
+import * as actions from '../../store/actions/index';
 import Cards from '../../components/Cards/Cards';
 
 class MyPokemon extends Component {
@@ -35,8 +35,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onUpdateToolbar: (config) => dispatch({ type: actionTypes.UPDATE_TOOLBAR, toolbar: config }),
-    onRemove: (id) => dispatch({ type: actionTypes.DELETE_MY_POKEMON, id: id }),
+    onUpdateToolbar: (config) => dispatch(actions.updateToolbar(config)),
+    onRemove: (id) => dispatch(actions.deleteMyPokemon(id)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(MyPokemon);

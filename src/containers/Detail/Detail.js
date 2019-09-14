@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 
 import './Detail.css';
-import * as actionTypes from '../../store/actions';
+import * as actions from '../../store/actions/index';
 import { getIdFromUrl, capitalizeFirstLetters, successProbability, convertUnits } from '../../helpers';
 import Spinner from '../../components/Spinner/Spinner';
 import Cards from '../../components/Cards/Cards';
@@ -23,11 +23,7 @@ class Detail extends Component {
   }
   catchPokemon = () => {
     const beCaught = successProbability(0.5);
-    if (beCaught) {
-      this.openModal(true);
-    } else {
-      this.openModal(false);
-    }
+    this.openModal(beCaught);
   }
   getMoves() {
     let moves = [];
@@ -175,9 +171,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onUpdateToolbar: (config) => dispatch({ type: actionTypes.UPDATE_TOOLBAR, toolbar: config }),
-    onCatchPokemon: (myPokemon) => dispatch({ type: actionTypes.ADD_MY_POKEMON, myPokemon: [myPokemon] }),
-    onUpdateModal: (modal) => dispatch({ type: actionTypes.UPDATE_MODAL, modal: modal })
+    onUpdateToolbar: (config) => dispatch(actions.updateToolbar(config)),
+    onCatchPokemon: (myPokemon) => dispatch(actions.addMyPokemon(myPokemon)),
+    onUpdateModal: (modal) => dispatch(actions.updateModal(modal))
   };
 };
 

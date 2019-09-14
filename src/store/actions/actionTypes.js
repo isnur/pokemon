@@ -1,5 +1,8 @@
 export const GET_MY_POKEMON = 'GET_MY_POKEMON';
 export const GET_POKEMON = 'GET_POKEMON';
+export const LOAD_MORE = 'LOAD_MORE';
+export const IS_BUSY = 'IS_BUSY';
+export const NEXT_URL = 'NEXT_URL';
 export const ADD_MY_POKEMON = 'ADD_MY_POKEMON';
 export const DELETE_MY_POKEMON = 'DELETE_MY_POKEMON';
 export const UPDATE_TOOLBAR = 'UPDATE_TOOLBAR';
