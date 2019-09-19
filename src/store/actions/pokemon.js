@@ -48,16 +48,16 @@ export const fetchPokemonSuccess = (results) => {
 };
 
 export const getPokemon = (url, firstLoad) => {
-  return dispatch => {
+  return async dispatch => {
     dispatch(setLoading(firstLoad, true));
-    axios.get(url)
-      .then(response => {
-        dispatch(setLoading(firstLoad, false));
-        dispatch(nextUrl(response.data.next ? response.data.next : null));
-        dispatch(fetchPokemonSuccess(response.data.results));
-      })
-      .catch(() => {
-        dispatch(setLoading(firstLoad, false));
-      });
+    try {
+      const response = await axios.get(url);
+      dispatch(setLoading(firstLoad, false));
+      dispatch(nextUrl(response.data.next ? response.data.next : null));
+      dispatch(fetchPokemonSuccess(response.data.results));
+    }
+    catch (e) {
+      dispatch(setLoading(firstLoad, false));
+    }
   };
 };

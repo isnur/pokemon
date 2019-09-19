@@ -5,7 +5,7 @@ import * as actions from '../../store/actions/index';
 import Cards from '../../components/Cards/Cards';
 import Loadmore from '../../components/Loadmore/Loadmore';
 
-class Home extends Component {
+export class Home extends Component {
   componentDidMount() {
     setTimeout(() => {
       window.scrollTo(0, 0);
