@@ -116,18 +116,20 @@ class Detail extends Component {
   render() {
     return (
       <div className={`content${this.state.loading ? ' content__loading' : ''}`}>
-        <div className="content__header">
-          <h1 style={{ 'display': this.state.loading ? 'none' : 'block' }}>
-            {this.getNickname() && this.state.pokemonDetail ?
-              capitalizeFirstLetters(this.state.pokemonDetail.name) :
-              capitalizeFirstLetters(this.getNickname())
-            }
-            {!this.getNickname() && this.state.pokemonDetail ?
-              capitalizeFirstLetters(this.state.pokemonDetail.name) :
-              <span> ({capitalizeFirstLetters(this.getNickname())})</span>
-            }
-          </h1>
-        </div>
+        {this.state.pokemonDetail && 
+          <div className="content__header">
+            <h1 style={{ 'display': this.state.loading ? 'none' : 'block' }}>
+              {this.getNickname() ?
+                capitalizeFirstLetters(this.state.pokemonDetail.name) :
+                capitalizeFirstLetters(this.getNickname())
+              }
+              {!this.getNickname() ?
+                capitalizeFirstLetters(this.state.pokemonDetail.name) :
+                <span> ({capitalizeFirstLetters(this.getNickname())})</span>
+              }
+            </h1>
+          </div>
+        }
         {this.state.loading && <Spinner radius="10" strokeWidth="1" color="#03ac0e" />}
         {this.state.errorMsg && <div style={{ marginTop: '30px' }}>{this.state.errorMsg}</div>}
         {!this.state.loading && !this.state.errorMsg &&
