@@ -3,10 +3,12 @@ import * as actionTypes from '../actions/actionTypes';
 const initialState = {
   pokemonList: [],
   loadmore: false,
-  busy: false
+  busy: false,
+  nextUrl: null
 };
 
 const reducer = (state = initialState, action) => {
+  const pokemonList = state.pokemonList ? state.pokemonList : [];
   switch (action.type) {
     case actionTypes.RESET_POKEMON: return {
       ...state,
@@ -26,7 +28,7 @@ const reducer = (state = initialState, action) => {
     };
     case actionTypes.GET_POKEMON: return {
       ...state,
-      pokemonList: [...state.pokemonList, ...action.pokemonList]
+      pokemonList: [...pokemonList, ...action.pokemonList]
     };
     default:
       return state;
