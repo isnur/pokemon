@@ -1,7 +1,11 @@
 export const GET_MY_POKEMON = 'GET_MY_POKEMON';
 export const GET_POKEMON = 'GET_POKEMON';
+export const POKEMON_DETAIL = 'POKEMON_DETAIL';
+export const POKEMON = 'POKEMON';
 export const LOAD_MORE = 'LOAD_MORE';
 export const IS_BUSY = 'IS_BUSY';
+export const IS_LOADING = 'IS_LOADING';
+export const ERROR_MSG = 'ERROR_MSG';
 export const NEXT_URL = 'NEXT_URL';
 export const ADD_MY_POKEMON = 'ADD_MY_POKEMON';
 export const DELETE_MY_POKEMON = 'DELETE_MY_POKEMON';

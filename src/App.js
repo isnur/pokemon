@@ -11,7 +11,7 @@ const Home = lazy(() => import('./containers/Home/Home'));
 const Detail = lazy(() => import('./containers/Detail/Detail'));
 const MyPokemon = lazy(() => import('./containers/MyPokemon/MyPokemon'));
 
-class App extends PureComponent {
+export class App extends PureComponent {
   backHandler = () => {
     if (this.props.location.pathname !== '/') {
       if (this.props.history.length < 3) {
@@ -19,6 +19,8 @@ class App extends PureComponent {
       } else {
         this.props.history.goBack();
       }
+    } else {
+      this.props.history.push('/');
     }
   }
   detailHandler = () => {
@@ -29,7 +31,7 @@ class App extends PureComponent {
     return (
       <div className="App">
         <Suspense fallback={<Spinner radius="5" strokeWidth="1" color="#03ac0e" />}>
-          <ToolBar total={this.props.myPokemon.length} toolbar={this.props.toolbar} backHandler={this.backHandler} detailHandler={this.detailHandler} />
+          <ToolBar total={this.props.myPokemon ? this.props.myPokemon.length : []} toolbar={this.props.toolbar} backHandler={this.backHandler} detailHandler={this.detailHandler} />
           <Switch>
             <Route path="/my-pokemon" component={MyPokemon} />
             <Route path="/detail" component={Detail} />
@@ -42,10 +44,10 @@ class App extends PureComponent {
   }
 }
 
-const mapStateToProps = state => {
+export const mapStateToProps = state => {
   return {
     toolbar: state.toolbar,
-    myPokemon: state.myPokemon,
+    myPokemon: state.myPokemon.myPokemonList,
     modal: state.modal
   };
 };

@@ -5,10 +5,13 @@ export const getIdFromUrl = (url) => {
 };
 
 export const capitalizeFirstLetters = (str) => {
-  const addSpace = str.replace(/-/g, ' ');
-  return addSpace.toLowerCase().replace(/^\w|\s\w/g, letter => {
-    return letter.toUpperCase();
-  })
+  if (str) {
+    const addSpace = str.replace(/-/g, ' ');
+    return addSpace.toLowerCase().replace(/^\w|\s\w/g, letter => {
+      return letter.toUpperCase();
+    })
+  }
+  return '';
 };
 
 export const successProbability = (p) => {

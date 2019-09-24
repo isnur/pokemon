@@ -10,7 +10,7 @@ export {
 export {
   deleteMyPokemon,
   addMyPokemon,
-  getMyPokemon
+  getPokemonDetail
 } from './myPokemon';
 
 export {

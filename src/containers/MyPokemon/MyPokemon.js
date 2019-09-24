@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import * as actions from '../../store/actions/index';
 import Cards from '../../components/Cards/Cards';
+import { mapDispatchToProps } from './actionCreators';
+import { mapStateToProps } from './selectors';
 
-class MyPokemon extends Component {
+export class MyPokemon extends Component {
   componentDidMount() {
     this.props.onUpdateToolbar({
       srcLogo: '/images/back.png',
@@ -20,23 +21,10 @@ class MyPokemon extends Component {
           <h1>My Pokemon List</h1>
           <span>Total owned: <strong>{this.props.myPokemon.length}</strong></span>
         </div>
-        <Cards items={this.props.myPokemon} loadmore={false} clicked removed={(id) => this.props.onRemove(id)} />
+        <Cards items={this.props.myPokemon} loadmore={false} clicked removed={id => this.props.onRemove(id)} />
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    toolbar: state.toolbar,
-    myPokemon: state.myPokemon
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    onUpdateToolbar: (config) => dispatch(actions.updateToolbar(config)),
-    onRemove: (id) => dispatch(actions.deleteMyPokemon(id)),
-  };
-};
 export default connect(mapStateToProps, mapDispatchToProps)(MyPokemon);
