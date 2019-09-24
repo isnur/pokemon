@@ -54,6 +54,7 @@ describe('<Modal />', () => {
     } else {
       expect(error.exists()).toEqual(false);
     }
+    wrapper.unmount();
   });
 
   it('should be able to submit the modal', () => {
@@ -66,6 +67,7 @@ describe('<Modal />', () => {
     input.simulate('change', { target: { value: newValue } });
     submit.simulate('click');
     expect(mock).toHaveBeenCalled();
+    wrapper.unmount();
   });
 
   it('should render an `.modal__outside`', () => {

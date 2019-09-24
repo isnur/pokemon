@@ -25,4 +25,8 @@ describe('helpers', () => {
     const str = 'meloetta-aria';
     expect(utils.capitalizeFirstLetters(str)).toBe('Meloetta Aria');
   });
+
+  it('Capitalize First Letters', () => {
+    expect(utils.capitalizeFirstLetters(undefined)).toBe('');
+  });
 });

@@ -9,10 +9,11 @@ describe('<Home />', () => {
 
   beforeEach(() => {
     const pokemonList = [];
+    const mock = jest.fn();
     wrapper = shallow(<Home
-      onUpdateToolbar={() => {}}
+      onUpdateToolbar={mock}
       pokemonList={pokemonList}
-      onGetPokemon={() => {}} />);
+      onGetPokemon={mock} />);
   });
 
   it('should render <Home />', () => {
