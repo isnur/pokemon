@@ -76,6 +76,7 @@ describe('<Detail />', () => {
     });
     const content = wrapper.find('.content__button');
     content.simulate('click');
+    wrapper.instance().openModal();
     wrapper.instance().openModal(true);
     expect(mock).toHaveBeenCalled();
   });
