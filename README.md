@@ -1,3 +1,7 @@
+# Pokemon Web App
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1db8c1a4-791b-400b-a1c4-d97f5d2e1133/deploy-status)](https://app.netlify.com/sites/pokemon-isnur/deploys) [![Build Status](https://travis-ci.org/isnur/pokemon.svg?branch=master)](https://travis-ci.org/isnur/pokemon) [![codecov](https://codecov.io/gh/isnur/pokemon/branch/master/graph/badge.svg)](https://codecov.io/gh/isnur/pokemon)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
